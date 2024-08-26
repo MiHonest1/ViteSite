@@ -4,6 +4,9 @@
     "module": "ESNext",
     "allowImportingTsExtensions": true,
     "noEmit": true,
-    "moduleResolution": "node"
+    "moduleResolution": "node",
+    "jsx": "react",
+    "allowUmdGlobalAccess": true,
+    "allowSyntheticDefaultImports": true
   }
 }

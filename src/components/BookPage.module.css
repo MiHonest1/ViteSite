@@ -1,0 +1,73 @@
+.container {
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  font-family: Arial, sans-serif;
+}
+
+.loading {
+  text-align: center;
+  font-size: 18px;
+  color: #555;
+}
+
+.error {
+  text-align: center;
+  font-size: 18px;
+  color: red;
+}
+
+.bookDetails {
+  display: flex;
+  margin-bottom: 20px;
+}
+
+.bookImageContainer {
+  margin-right: 20px;
+  flex-shrink: 0;
+  max-width: 50%; /* Увеличим максимальную ширину контейнера изображения */
+}
+
+.bookImageContainer {
+  width: 300px; /* Фиксированная ширина контейнера */
+  height: 400px; /* Фиксированная высота контейнера */
+  overflow: hidden; /* Скрыть выходящее за пределы содержимое */
+}
+
+.bookImage {
+  width: 100%; /* Картинка займет всю ширину контейнера */
+  height: 100%; /* Картинка займет всю высоту контейнера */
+  object-fit: cover; /* Заполнит контейнер, сохраняя пропорции */
+}
+
+.bookInfoContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  flex-grow: 1;
+  max-width: 600px;
+  width: 100%;
+  margin-right: 10px;
+}
+
+.bookInfoContainer p {
+  /* Замените p на тег, который содержит ваш текст */
+  text-align: left; /* Выравнивание текста по левому краю */
+}
+
+.bookTitle {
+  font-size: 24px;
+  font-weight: bold;
+  margin: 10px 0;
+}
+
+.bookInfo {
+  font-size: 16px;
+  margin: 5px 0;
+}
+
+.bookDescription {
+  text-align: justify;
+  margin-top: 20px;
+  font-size: 16px;
+}

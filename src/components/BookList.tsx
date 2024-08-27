@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
 interface Book {
   id: string;
@@ -24,12 +25,12 @@ export default function BookList() {
         const fetchedBooks = data.items.map((item) => ({
           id: item.id,
           title: item.volumeInfo.title,
-          author: item.volumeInfo.authors?.[0] || 'Unknown',
+          author: item.volumeInfo.authors?.join(', ') || 'Unknown',
           cover: item.volumeInfo.imageLinks?.thumbnail || '',
         }));
         setBooks(fetchedBooks);
       } catch (error) {
-        console.error('Error fetching books:', error);
+        console.error('Ошибка получения книг:', error);
       } finally {
         setIsLoading(false);
       }
@@ -65,9 +66,11 @@ export default function BookList() {
               <li key={book.id} className="book-item">
                 <div>
                   <img src={book.cover} alt={book.title} />
-                  <p>Автор: {book.author}</p>
+                  <p>Авторы: {book.author}</p>
                 </div>
-                <h3>{book.title}</h3>
+                <Link to={`/book/${book.id}`}>
+                  <h3>{book.title}</h3>
+                </Link>
               </li>
             ))}
           </ul>

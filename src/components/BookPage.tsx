@@ -74,8 +74,9 @@ export default function BookPage() {
           </p>
         </div>
       </div>
+      <p className={styles.bookDescriptionTitle}>Описание:</p>
       <div className={styles.bookDescription}>
-        Описание:{ReactHtmlParser(book.description) || 'Без описания'}
+        {ReactHtmlParser(book.description) || 'Без описания'}
       </div>
     </div>
   );

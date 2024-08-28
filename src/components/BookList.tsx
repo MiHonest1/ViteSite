@@ -13,6 +13,7 @@ export default function BookList() {
   const [currentPage, setCurrentPage] = useState(1);
   const booksPerPage = 10;
   const [isLoading, setIsLoading] = useState(true);
+  const [inputWord, setInputWord] = useState('');
 
   useEffect(() => {
     const fetchBooks = async () => {
@@ -38,11 +39,17 @@ export default function BookList() {
     fetchBooks();
   }, []);
 
+  const filteredBooks: Book[] = books.filter(
+    (book) =>
+      book.title.toLowerCase().includes(inputWord.toLowerCase()) ||
+      book.author.toLowerCase().includes(inputWord.toLowerCase()),
+  );
+
   const indexOfLastBook = currentPage * booksPerPage;
   const indexOfFirstBook = indexOfLastBook - booksPerPage;
-  const currentBooks = books.slice(indexOfFirstBook, indexOfLastBook);
+  const currentBooks = filteredBooks.slice(indexOfFirstBook, indexOfLastBook);
 
-  const totalPages = Math.ceil(books.length / booksPerPage);
+  const totalPages = Math.ceil(filteredBooks.length / booksPerPage);
 
   const paginate = (pageNumber: number) => {
     if (pageNumber < 1) {
@@ -57,6 +64,18 @@ export default function BookList() {
   return (
     <div className="container book-list-container">
       <h1>JavaScript книжки</h1>
+
+      <input
+        className="text-field__input"
+        type="text"
+        value={inputWord}
+        onChange={(e) => {
+          setInputWord(e.target.value);
+          setCurrentPage(1);
+        }}
+        placeholder="Найти по названию или автору"
+      />
+
       {isLoading ? (
         <p>Загрузка...</p>
       ) : (

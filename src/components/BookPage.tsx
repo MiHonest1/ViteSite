@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import ReactHtmlParser from 'react-html-parser';
 import styles from './BookPage.module.css';
 
@@ -48,6 +48,9 @@ export default function BookPage() {
 
   return (
     <div className={styles.container}>
+      <div>
+        <Link to="/">Перейти на страницу списка книг</Link>
+      </div>
       <div className={styles.bookDetails}>
         <div className={styles.bookImageContainer}>
           {book.imageLinks?.thumbnail && (

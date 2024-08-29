@@ -8,6 +8,14 @@ interface Book {
   cover: string;
 }
 
+export function filterBooks(books: Book[], inputWord: string): Book[] {
+  return books.filter(
+    (book) =>
+      book.title.toLowerCase().includes(inputWord.toLowerCase()) ||
+      book.author.toLowerCase().includes(inputWord.toLowerCase()),
+  );
+}
+
 export default function BookList() {
   const [books, setBooks] = useState<Book[]>([]);
   const [currentPage, setCurrentPage] = useState(1);
@@ -39,11 +47,7 @@ export default function BookList() {
     fetchBooks();
   }, []);
 
-  const filteredBooks: Book[] = books.filter(
-    (book) =>
-      book.title.toLowerCase().includes(inputWord.toLowerCase()) ||
-      book.author.toLowerCase().includes(inputWord.toLowerCase()),
-  );
+  const filteredBooks = filterBooks(books, inputWord);
 
   const indexOfLastBook = currentPage * booksPerPage;
   const indexOfFirstBook = indexOfLastBook - booksPerPage;

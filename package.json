@@ -9,7 +9,7 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "prepare": "husky install",
-    "test": "mocha --require ts-node/register 'src/components/**/*.test.ts'"
+    "test": "mocha --require ts-node/register 'src/components/**/*.test.tsx'"
   },
   "lint-staged": {
     "**/*": "prettier --write --ignore-unknown"

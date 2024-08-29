@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-import { filterBooks } from './BookList.tsx';
+import { filterBooks, paginate } from './BookList.tsx';
 
 describe('filterBooks', () => {
   const example = [
@@ -42,5 +42,31 @@ describe('filterBooks', () => {
     expect(result).to.have.lengthOf(2);
     expect(result[0].title).to.equal('JavaScript: The Definitive Guide');
     expect(result[1].title).to.equal('Decoding javascript');
+  });
+});
+
+describe('paginate', () => {
+  it('Установка номера текущей страницы в 1, если указанный номер страницы меньше 1', () => {
+    const totalPages = 5;
+    let currentPage = 0;
+    paginate(currentPage, totalPages, (page) => {
+      expect(page).to.equal(1);
+    });
+  });
+
+  it('Установка номера текущей страницы в конечный, если указанный номер страницы больше общего количества страниц', () => {
+    const totalPages = 5;
+    let currentPage = 6;
+    paginate(currentPage, totalPages, (page) => {
+      expect(page).to.equal(totalPages);
+    });
+  });
+
+  it('Установка номера текущей страницы в указанный номер страницы, если он находится в допустимом диапазоне', () => {
+    const totalPages = 5;
+    let currentPage = 3;
+    paginate(currentPage, totalPages, (page) => {
+      expect(page).to.equal(currentPage);
+    });
   });
 });

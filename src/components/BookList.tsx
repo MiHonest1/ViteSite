@@ -16,6 +16,20 @@ export function filterBooks(books: Book[], inputWord: string): Book[] {
   );
 }
 
+export function paginate(
+  currentPage: number,
+  totalPages: number,
+  setCurrentPage: (page: number) => void,
+) {
+  if (currentPage < 1) {
+    setCurrentPage(1);
+  } else if (currentPage > totalPages) {
+    setCurrentPage(totalPages);
+  } else {
+    setCurrentPage(currentPage);
+  }
+}
+
 export default function BookList() {
   const [books, setBooks] = useState<Book[]>([]);
   const [currentPage, setCurrentPage] = useState(1);
@@ -55,16 +69,6 @@ export default function BookList() {
 
   const totalPages = Math.ceil(filteredBooks.length / booksPerPage);
 
-  const paginate = (pageNumber: number) => {
-    if (pageNumber < 1) {
-      setCurrentPage(1);
-    } else if (pageNumber > totalPages) {
-      setCurrentPage(totalPages);
-    } else {
-      setCurrentPage(pageNumber);
-    }
-  };
-
   return (
     <div className="container book-list-container">
       <h1>JavaScript книжки</h1>
@@ -99,14 +103,18 @@ export default function BookList() {
           </ul>
           <div>
             <button
-              onClick={() => paginate(currentPage - 1)}
+              onClick={() =>
+                paginate(currentPage - 1, totalPages, setCurrentPage)
+              }
               disabled={currentPage === 1}
             >
               Назад
             </button>
 
             <button
-              onClick={() => paginate(currentPage + 1)}
+              onClick={() =>
+                paginate(currentPage + 1, totalPages, setCurrentPage)
+              }
               disabled={currentPage === totalPages}
             >
               Вперед

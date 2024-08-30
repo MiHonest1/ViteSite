@@ -1,36 +1,42 @@
 .container {
-  padding: 20px;
-  max-width: 1200px;
-  margin: 0 auto;
-  font-family: Arial, sans-serif;
+  padding: 100px;
+  width: 1000px;
+  margin: 90px 10px 10px;
+  font-family: 'Montserrat', sans-serif;
+  background-color: #f9f9f9;
+  border-radius: 6px;
+  border-top-right-radius: 0;
 }
 
-.loading {
-  text-align: center;
-  font-size: 18px;
-  color: #555;
-}
-
+.loading,
 .error {
   text-align: center;
   font-size: 18px;
-  color: red;
+  color: #555;
+  padding: 40px 0;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.error {
+  color: #e53935;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .bookDetails {
+  transform: translateY(40px);
   display: flex;
   margin-bottom: 20px;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 6px;
+  overflow: hidden;
 }
 
 .bookImageContainer {
   margin-right: 20px;
   flex-shrink: 0;
-  max-width: 50%;
-}
-
-.bookImageContainer {
-  width: 300px;
-  height: 400px;
+  width: 250px;
+  height: 350px;
   overflow: hidden;
 }
 
@@ -45,34 +51,92 @@
   flex-direction: column;
   justify-content: flex-start;
   flex-grow: 1;
-  max-width: 600px;
+  padding: 20px;
   width: 100%;
-  margin-right: 10px;
 }
 
-.bookInfoContainer p {
+.bookInfoContainer * {
   text-align: left;
 }
 
 .bookTitle {
-  font-size: 34px;
+  font-size: 28px;
   font-weight: bold;
-  margin: 10px 0;
+  margin: 0 0 10px;
+  color: #333;
 }
 
 .bookInfo {
   font-size: 16px;
   margin: 5px 0;
+  color: #555;
+  display: flex;
+  align-items: center;
+}
+
+.bookInfoLabel {
+  font-weight: bold;
+  margin-right: 6px;
 }
 
 .bookDescription {
   text-align: justify;
   margin-top: 20px;
   font-size: 16px;
+  color: #555;
 }
 
 .bookDescriptionTitle {
-  font-size: 24px;
+  font-size: 22px;
   font-weight: bold;
-  margin: 10px 0;
+  margin: 80px 10px 30px;
+  color: #333;
+}
+
+.bookDescriptionContent {
+  background-color: #f5f5f5;
+  padding: 15px;
+  border-radius: 6px;
+}
+
+.backLink {
+  display: inline-block;
+  margin-bottom: 15px;
+  color: #1976d2;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.backLink:hover {
+  text-decoration: underline;
+}
+
+.backLinkWrapper {
+  text-decoration: none;
+  margin: -50px 10px 30px;
+}
+
+.backLinkButton {
+  background-color: black;
+  color: #fff;
+  font-size: 16px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 0px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.backLinkButton:hover {
+  background-color: #f9f9f9;
+}
+
+.Link {
+  margin: -60px 10px 30px;
+}
+
+.backLinkWrapper {
+  position: absolute;
+  top: 0;
+  right: -10px;
 }

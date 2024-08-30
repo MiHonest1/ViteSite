@@ -48,8 +48,10 @@ export default function BookPage() {
 
   return (
     <div className={styles.container}>
-      <div>
-        <Link to="/">Перейти на страницу списка книг</Link>
+      <div className={styles.Link}>
+        <Link to="/" className={styles.backLinkWrapper}>
+          <button className={styles.backLinkButton}>Назад к списку</button>
+        </Link>
       </div>
       <div className={styles.bookDetails}>
         <div className={styles.bookImageContainer}>

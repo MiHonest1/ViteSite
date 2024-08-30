@@ -7,7 +7,7 @@ import BookPage from './components/BookPage';
 
 export default function App() {
   return (
-    <>
+    <div className="App">
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<BookList />} />
@@ -15,6 +15,6 @@ export default function App() {
           <Route path="*" element={<NoPage />} />
         </Routes>
       </BrowserRouter>
-    </>
+    </div>
   );
 }

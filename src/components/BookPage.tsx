@@ -48,7 +48,7 @@ export default function BookPage() {
 
   return (
     <div className={styles.container}>
-      <div className={styles.Link}>
+      <div className={styles.link}>
         <Link to="/" className={styles.backLinkWrapper}>
           <button className={styles.backLinkButton}>Назад к списку</button>
         </Link>

@@ -7,7 +7,6 @@
     "moduleResolution": "node",
     "jsx": "react",
     "allowUmdGlobalAccess": true,
-    "allowSyntheticDefaultImports": true,
-    "esModuleInterop": true
+    "allowSyntheticDefaultImports": true
   }
 }

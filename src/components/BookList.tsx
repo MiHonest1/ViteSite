@@ -69,9 +69,13 @@ export default function BookList() {
 
   const totalPages = Math.ceil(filteredBooks.length / booksPerPage);
 
+  if (isLoading) {
+    return <div className="loading">Загрузка...</div>;
+  }
+
   return (
     <div className="bookListContainer">
-      <h1 className="title">JavaScript книжки</h1>
+      <h1 className="title">Книги по JavaScript</h1>
 
       <input
         className="textFieldInput"
@@ -92,7 +96,9 @@ export default function BookList() {
             {currentBooks.map((book) => (
               <li key={book.id} className="bookItem">
                 <div className="bookCover">
-                  <img src={book.cover} alt={book.title} />
+                  <Link to={`/book/${book.id}`}>
+                    <img src={book.cover} alt={book.title} />
+                  </Link>
                 </div>
                 <div className="bookInfo">
                   <p>Авторы: {book.author}</p>
@@ -110,7 +116,7 @@ export default function BookList() {
               }
               disabled={currentPage === 1}
             >
-              Назад
+              {'⇦'}
             </button>
 
             <button
@@ -119,7 +125,7 @@ export default function BookList() {
               }
               disabled={currentPage === totalPages}
             >
-              Вперед
+              {'⇨'}
             </button>
             <p className="pageCount">
               Страница {currentPage} из {totalPages}

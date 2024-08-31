@@ -1,24 +1,21 @@
 .container {
+  position: relative;
   padding: 100px;
   width: 1000px;
   margin: 90px 10px 10px;
   font-family: 'Montserrat', sans-serif;
-  background-color: #f9f9f9;
+  background-color: #e3d5b8;
   border-radius: 6px;
-  border-top-right-radius: 0;
+  border: 2px solid #69434a;
+  box-sizing: border-box;
 }
 
 .loading,
 .error {
   text-align: center;
   font-size: 18px;
-  color: #555;
+  color: #e3d5b8;
   padding: 40px 0;
-  font-family: 'Montserrat', sans-serif;
-}
-
-.error {
-  color: #e53935;
   font-family: 'Montserrat', sans-serif;
 }
 
@@ -26,9 +23,10 @@
   transform: translateY(40px);
   display: flex;
   margin-bottom: 20px;
-  background-color: #fff;
+  background-color: #d7a278;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   border-radius: 6px;
+  border: 2px solid #69434a;
   overflow: hidden;
 }
 
@@ -57,19 +55,18 @@
 
 .bookInfoContainer * {
   text-align: left;
+  color: #69433a;
 }
 
 .bookTitle {
   font-size: 28px;
   font-weight: bold;
   margin: 0 0 10px;
-  color: #333;
 }
 
 .bookInfo {
   font-size: 16px;
   margin: 5px 0;
-  color: #555;
   display: flex;
   align-items: center;
 }
@@ -83,14 +80,14 @@
   text-align: justify;
   margin-top: 20px;
   font-size: 16px;
-  color: #555;
+  color: #69433a;
 }
 
 .bookDescriptionTitle {
+  color: #69433a;
   font-size: 22px;
   font-weight: bold;
   margin: 80px 10px 30px;
-  color: #333;
 }
 
 .bookDescriptionContent {
@@ -99,44 +96,56 @@
   border-radius: 6px;
 }
 
-.backLink {
-  display: inline-block;
-  margin-bottom: 15px;
-  color: #1976d2;
-  text-decoration: none;
-  font-size: 14px;
-}
-
-.backLink:hover {
-  text-decoration: underline;
-}
-
-.backLinkWrapper {
-  text-decoration: none;
-  margin: -50px 10px 30px;
-}
-
-.backLinkButton {
-  background-color: black;
-  color: #fff;
-  font-size: 16px;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 0px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.backLinkButton:hover {
-  background-color: #f9f9f9;
-}
-
-.Link {
-  margin: -60px 10px 30px;
-}
-
 .backLinkWrapper {
   position: absolute;
-  top: 0;
-  right: -10px;
+  top: -51px;
+  right: -13px;
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 50px;
+    width: 80%;
+  }
+
+  .bookDetails {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .bookImageContainer {
+    margin-right: 0;
+    margin-bottom: 20px;
+    width: 80%;
+    height: auto;
+  }
+
+  .bookInfoContainer {
+    align-items: center;
+    text-align: center;
+    width: 100%;
+  }
+
+  .bookTitle {
+    font-size: 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 20px;
+    width: 90%;
+  }
+
+  .bookTitle {
+    font-size: 20px;
+  }
+
+  .bookInfo {
+    font-size: 14px;
+  }
+
+  .bookDescription {
+    font-size: 14px;
+  }
 }
